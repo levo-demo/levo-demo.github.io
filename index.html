@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LeVo: High-Quality Song Generation with Multi-Preference Alignment">
+  <meta name="keywords" content="Song generation, Music generation, Language Model, Direct Preference Optimization, Multi-Preference Alignment">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LeVo</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7749G0HJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L7749G0HJZ');
+</script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body" style="padding-bottom: 24px;">
+    <div class="container  is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LeVo: High-Quality Song Generation with Multi-Preference Alignment</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous Author(s)
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="abs" class="section" style="padding-top: 0px;">
+  <div class="container  is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advances in large language models (LLMs) and audio language models have significantly improved music generation, particularly in lyrics-to-song generation. 
+            However, existing approaches still struggle with the complex composition of songs and the scarcity of high-quality data, leading to limitations in sound quality, musicality, instruction following, and vocal-instrument harmony. 
+            To address these challenges, we introduce <b>LeVo</b>, an <b>LM-based framework consisting of LeLM and a music codec</b>. 
+            LeLM is capable of parallel modeling of two types of tokens: <b>mixed tokens</b>, which <b>represent the combined audio of vocals and accompaniment</b> to achieve <b>vocal-instrument harmony</b>, and <b>dual-track tokens</b>, which <b>separately encode vocals and accompaniment</b> for <b>high-quality song generation</b>. 
+            It employs two decoder-only transformers and a modular extension training strategy to <b>prevent interference between different token types</b>. 
+            To further enhance <b>musicality and instruction following</b>, we introduce a <b>multi-preference alignment method based on Direct Preference Optimization (DPO)</b>.
+            This method handles diverse human preferences through a semi-automatic data construction process and DPO fine-tuning. 
+            Experimental results demonstrate that LeVo consistently outperforms existing methods on both objective and subjective metrics. 
+            Ablation studies further justify the effectiveness of our designs.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <img src="./static/image/over.png" class="interpolation-image"
+            alt="Interpolate start reference image." />
+          <h2 class="subtitle has-text-centered">
+            The overview of LeVo.
+          </h2>
+        </div>
+      </div> 
+    </div>
+  </div>
+</section>
+
+
+<section id="toc" class="section" style="padding-top: 0px;">
+  <div class="container  is-fluid">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Table of Contents</h2>
+        <div class="is-centered">
+          <ul>
+            <li><a href="#demo"><b>Song Generation</b></a></li>
+            <!-- <li><a href="#audioprompt"><b>Zero-shot Style Transfer</b></a></li>
+            <li><a href="#textprompt"><b>Text-based Control</b></a></li>
+            <li><a href="#explore"><b>More Attempts</b></a></li> -->
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="demo" class="hero">
+  <div class="hero-body">
+    <div class="container is-fluid">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Song Generation</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <table class="table" style="background-color: transparent;">
+          <thead>
+            <tr>
+              <th align="center"><strong></span>Lyrics</strong></th>
+              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>LeVo</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+      
+      <tr>
+        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>English </td>
+      </tr>
+      
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] These faded memories of us. I can't erase the tears you cried before. Unchained this heart to find its way. My peace won't beg you to stay. If ever your truth still remains. Turn around and see. Life rearranged its games. All these lessons in mistakes. Even years may never erase. <br>
+          [chorus] Like a fool begs for supper. I find myself waiting for her. Only to find the broken pieces of my heart. That was needed for my soul to love again. <br>
+          [verse]Silhouettes where you once stood. Life's rhythm changed its beat for good. Numb to whispers we once knew. My path won't circle back to you. If shadows of our past remain. Turn around and see. How we've both been rearranged. All these lessons in mistakes. Even years may never erase. <br>
+          [chorus]Like a fool begs for supper. I find myself waiting for her. Only to find the broken pieces of my heart. That was needed for my soul to love again.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/01_en.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] Ooh. listen closely. can you hear that sound. Whispers of the trees. humanity bound. Concrete jungles overflowing. Mother Earth weeps. While the rich man dreams. poor man cannot sleep. Galore of colors we were born. yet treated not the same. Invisible chains of history fueling hate's gain. Looking through a prism. promises resembling lies. Injustice on the streets. freedom's undenied. <br>
+          [chorus] Stand up. stand up. for the world is watching now.Silenced voices screaming. breaking through somehow.Not divided. let's reclaim our land.Through the echoes of our voices. together we stand. <br>
+          [verse] Ooh. listen closely. can you hear that sound. Whispers of the trees. humanity bound. Concrete jungles overflowing. Mother Earth weeps. While the rich man dreams. poor man cannot sleep. Galore of colors we were born. yet treated not the same. Invisible chains of history fueling hate's gain. Looking through a prism. promises resembling lies. Injustice on the streets. freedom's undenied <br>
+          [chorus] Stand up. stand up. for the world is watching now. Silenced voices screaming. breaking through somehow. United. not divided. let's reclaim our land. Through the echoes of our voices. together we make a stand.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/02_en.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] You always look far away. choosing distant words. But when you meet my gaze and smile so softly. My heart stirs with excitement. oh oh oh oh oh. You make my gaze and smile softly. I'm obsessed. excited. Why do you always choose words that test me. I wonder why this old boy touches you when your shadow slips away. <br>
+          [chorus] You. the little devil of a model jet. Where does the true color lie. The closer I get. the farther you seem. You. the little devil of a model jet. Where does the true color lie. The closer I get. the farther you seem. For some reason. I can't reach your heart. <br>
+          [verse] You're always so indifferent. smiling coldly at me. But sometimes with just a gesture. I find myself bewildered. lost in this world. And once again. I wanna distance myself. yet I can't. I'm drowning in everything about you in your eyes. I wish you would just be honest. <br>
+          [chorus] You. so charming. are a model like the wind. Someday I want to see the honest you. You. so charming. I'm on a model. vanishing like the wind. Someday I want to see the honest you. I want you to change my world. The more you drift away. the more I want to draw near. Cause that one word that isn't there pulls me in so much. it feels like I'll drown.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/03_en.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] There in the stardust my once held dear. Our hearts entwined. yet now so clear. Your ghostly presence in my dreams appear. An echo of lost echoes. ever near. <br>
+          [chorus] Being frosted on times I see. An echo of a touch of what remains. Lost in the cosmos. our love in a name. The tears fall like silver rain. <br>
+          [verse] Echoes of your laughter. starlit sighs. In the nebula memories love decries. Night whispers your name. the moon replies. Now a comet across the sky it flies. <br>
+          [chorus] Being frosted on times I see. An echo of a touch of what remains. Lost in the cosmos. our love innate. Moonlit love. the tears fall like silver rain.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/04_en.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] Echoing voices. screaming chaos in the static noise. Cracked mirrors of forgotten choices. Our society. a dying poise. skyline burn to ashes. Mother nature cries. frozen hearts ignoring the inevitable decline. Smoke of a planet's demise. <br>
+          [chorus] Rainbow flags and protests burning in the labyrinth of concrete stone. Daunted fight. the world keeps turning. Yearning for justice. not alone. <br>
+          [verse] Echoing louder. silenced voices. screaming chaos in the static noise. Cracked mirrors of forgotten choices. Our society. a dying poise. underneath the synthetic skyline. Burned to ashes. mother nature cries. Frozen hearts ignoring the inevitable decline. Smoke springs of a demise. <br>
+          [chorus] Rainbow flags and protests burning in the labyrinth of concrete stone. Taunting fight. the world keeps turning. Yearning for justice. not alone. <br>
+          [verse] Rainbow flags and protests burning in the labyrinth of concrete stone. Dawning fight. the world keeps turning. Yearning for justice. not alone.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/05_en.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] Every day the sun don't shine. no more. The bed feels cold and empty since you walked out that door. You. the one. my only love I thought would last. Now I'm drowning in the memories of a love that's in the past. Since you've been gone. baby. my heart just can't move on. You were the light in my darkness. now I'm lost and all alone. <br>
+          [chorus] Oh. I miss you darling more than words could ever say. Since you've been gone. baby. the blues are here to stay. <br>
+          [verse] I remember all the laughter. all the dreams we used to share. Now I'm haunted by the silence of a love that's no longer there. Every street I walk is empty. every song I hear is pain. I keep looking for your shadow. but it's only pouring rain. <br>
+          [chorus] Since you've been gone. baby. my heart just can't move on. You were the light in my darkness. now I'm lost and all alone. Oh. I miss you darling more than words could ever say. Since you've been gone. baby. the blues are here to stay.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/06_en.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      
+      
+      <tr>
+        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>Chinese </td>
+      </tr>
+      
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] 云端漫步又相逢.人间纷扰皆成空.墨客远行寻旧梦.你我皆是梦中人.<br>
+          [chorus] 剑锋如虎破长空.路遥心坚步不停.愿在每个瞬间里.都能找到力量之源.<br>
+          [chorus] 莫道人情冷暖.只愿真心永存.一人一梦.万事皆能成.<br>
+          [verse] 云卷云舒映碧空.绿意盎然春意浓.万紫千红开满园.人间处处是风景.岁月如歌人未老.江畔渔火照夜空.<br>
+          [chorus] 我独行.影随形动.在庙宇前许下愿.愿人心.如金石坚.<br>
+          [chorus] 一人一力.万事皆能圆.炼就一颗金石心.笑看人间繁华变.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/01.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;"> [verse] 情深似海难言尽.泪珠儿滴滴映真心.为何君心似流水.此情此景何处寻.<br>
+          [chorus] 非是情深缘浅要分离.珠泪滚滚落红尘.春光明媚花正妍.怎能忍心说再见.<br>
+          [chorus] 我在山巅望天涯.秋水长流寄相思.莫忘此情似海深.此心永系君身旁.<br>
+          [verse] 泪眼婆娑问苍天.为何情深却难全.难道真要此情散.相思无尽泪涟涟.<br>
+          [chorus] 或许是天意弄人两分离.泪湿罗裳不自知.春花秋月又一年.相思无尽泪绵绵.<br>
+          [chorus] 我在水边望穿秋水.君心何在情难断.莫忘此情似海深.此心永系君心间.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/02.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;"> [verse] 当明天的钟声响起.你我共度此生无悔.遗憾与伤悲远离.心中只有爱的温暖.<br>
+          [verse] 金光闪耀在眼前.我们的心紧紧相连.留住这一刻的美好.让爱永远留在心间.<br>
+          [chorus] 一切美好都属于你.携手共进这爱的旅途.曾经的路途虽孤单.如今有你陪伴不寂寞.<br>
+          [chorus] 愿我们的爱永恒如初.这一生与你相伴共度.珍惜每一刻的拥有.让爱永远在我们的心间流淌.<br>
+          [verse] 明天的钟声再次响起.你我相伴此生无憾.留住这一刻的美好回忆.让爱永远留在心间.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/03.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;"> [verse] 在黑夜里点亮希望的明灯.照亮你前行的路程.在心海里种下温暖的种子.让它生根发芽长成荫.<br>
+          [chorus] 在黑夜里点亮希望的明灯.照亮你前行的路程.在心海里种下温暖的种子.让它生根发芽长成荫.<br>
+          [verse] 当你迷失在茫茫人海中.记得我在这里为你守望.当你找到属于自己的天空.我会微笑着默默祝福你.<br>
+          [verse] 当夜风吹过你孤独的脸庞.有我在心中为你点亮光.当梦想的路途变得漫长.有我在身旁陪你去闯.<br>
+          [chorus] 在黑夜里点亮希望的明灯.照亮你前行的路程.在心海里种下温暖的种子.让它生根发芽长成荫.<br>
+          [verse] 当你迷失在茫茫人海中.记得我在这里为你守望.当你找到属于自己的天空.我会微笑着默默祝福你.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/04.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] 雪花舞动在无尽的天际.情缘如同雪花般轻轻逝去.希望与真挚.永不磨灭.你的忧虑.随风而逝.<br>
+          [chorus] 我怀抱着守护这片梦境.在这世界中寻找爱与虚幻.苦辣酸甜.我们一起品尝.在雪的光芒中.紧紧相拥.<br>
+          [verse] 雪花再次在风中飘扬.情愿如同雪花般消失无踪.希望与真挚.永不消失.在痛苦与喧嚣中.你找到解脱.<br>
+          [chorus] 我环绕着守护这片梦境.在这世界中感受爱与虚假.苦辣酸甜.我们一起分享.在白银的光芒中.我们同在.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/05.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] 狂风吹过.黄沙漫漫.黄河之水.天上来.波涛汹涌.势不可挡.千年的梦.在心间荡漾.<br>
+          [chorus] 掩埋了过往.热血未凉.卷起千层浪.心中河.广阔天地.任我翱翔.不朽的黄河.奔腾不息.<br>
+          [chorus] 啊.黄河.永远的黄河.肩扛希望.勇敢前行.一路狂野.河水滚烫.不朽的黄河.历史的见证.<br>
+          [verse] 凤鸟飞舞.春华秋实.长铃摇曳.古老传说.烈酒入喉.燃烧灵魂.水波荡漾.永不回头.<br>
+          [chorus] 啊.黄河.永远的黄河.肩扛希望.勇敢前行.一路狂野.河水滚烫.不朽的黄河.历史的见证.<br>
+          [chorus] 浩荡的追求.永不停歇.黄河之水.孕育希望.生生不息.奔腾向前.不朽的黄河.我们的信仰.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/audioprompt/06.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      
+            </tbody>
+        </table>
+      </div>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <a href="#toc" class="button is-primary">Go Back to Table of Contents</a>
+                </div>
+              </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 
+<section id="audioprompt" class="hero">
+  <div class="hero-body">
+    <div class="container is-fluid">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Zero-shot Style Transfer</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <table class="table" style="background-color: transparent;">
+          <thead>
+            <tr>
+              <th align="center"><strong></span>Lyrics</strong></th>
+              <th align="center"><strong></span>Audio Prompt</strong></th>
+              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>LeVo</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+      
+      <tr>
+        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>English</td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">The life I planned for me, and my dreams, I am losing control, of my destiny, it feels like I'm falling and that's what it's like to believe, so I'm letting go, giving in to your gravity.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/same-prompt/1v.wav"
+            type="audio/wav">
+        </audio></td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/same-prompt/1a.wav"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+
+      
+      <tr>
+        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>Chinese</td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">Draw me angels with flapping wings, ooh... Strange machines, cos after the daekness is sunrise, there'll be hugs and teary smiles.
+        </td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/different-prompt/1v.wav"
+            type="audio/wav">
+        </audio></td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/different-prompt/1a.wav"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+            </tbody>
+        </table>
+      </div>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <a href="#toc" class="button is-primary">Go Back to Table of Contents</a>
+                </div>
+              </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="textprompt" class="hero">
+  <div class="hero-body">
+    <div class="container is-fluid">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Text-based Control</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <table class="table" style="background-color: transparent;">
+          <thead>
+            <tr>
+              <th align="center"><strong></span>Lyrics</strong></th>
+              <th align="center"><strong></span>Audio Prompt</strong></th>
+              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>LeVo</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+      
+      <tr>
+        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>English</td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">The life I planned for me, and my dreams, I am losing control, of my destiny, it feels like I'm falling and that's what it's like to believe, so I'm letting go, giving in to your gravity.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/same-prompt/1v.wav"
+            type="audio/wav">
+        </audio></td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/same-prompt/1a.wav"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+
+      
+      <tr>
+        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>Chinese</td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">Draw me angels with flapping wings, ooh... Strange machines, cos after the daekness is sunrise, there'll be hugs and teary smiles.
+        </td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/different-prompt/1v.wav"
+            type="audio/wav">
+        </audio></td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/different-prompt/1a.wav"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+            </tbody>
+        </table>
+      </div>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <a href="#toc" class="button is-primary">Go Back to Table of Contents</a>
+                </div>
+              </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="explore" class="hero">
+  <div class="hero-body">
+    <div class="container is-fluid">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">More Attempts</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <table class="table" style="background-color: transparent;">
+          <thead>
+            <tr>
+              <th align="center"><strong></span>Lyrics</strong></th>
+              <th align="center"><strong></span>Audio Prompt</strong></th>
+              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>LeVo</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+      
+      <tr>
+        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>English</td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">The life I planned for me, and my dreams, I am losing control, of my destiny, it feels like I'm falling and that's what it's like to believe, so I'm letting go, giving in to your gravity.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/same-prompt/1v.wav"
+            type="audio/wav">
+        </audio></td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/same-prompt/1a.wav"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+
+      
+      <tr>
+        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>Chinese</td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">Draw me angels with flapping wings, ooh... Strange machines, cos after the daekness is sunrise, there'll be hugs and teary smiles.
+        </td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/different-prompt/1v.wav"
+            type="audio/wav">
+        </audio></td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/overview/different-prompt/1a.wav"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+            </tbody>
+        </table>
+      </div>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <a href="#toc" class="button is-primary">Go Back to Table of Contents</a>
+                </div>
+              </div>
+    </div>
+  </div>
+</section> -->
+
