@@ -71,7 +71,7 @@
             To further enhance <b>musicality and instruction following</b>, we introduce a <b>multi-preference alignment method based on Direct Preference Optimization (DPO)</b>.
             This method handles diverse human preferences through a semi-automatic data construction process and DPO fine-tuning. 
             Experimental results demonstrate that LeVo consistently outperforms existing methods on both objective and subjective metrics. 
-            Ablation studies further justify the effectiveness of our designs.
+            Ablation studies further justify the effectiveness of our designs. <br>
           </p>
         </div>
 
@@ -97,6 +97,17 @@
   </div>
 </section>
 
+<section id="toc" class="section" style="padding-top: 0px;">
+  <div class="container  is-fluid">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="color: #e89c1a;">Our code will be released soon</h2>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <section id="toc" class="section" style="padding-top: 0px;">
   <div class="container  is-fluid">
@@ -107,9 +118,8 @@
         <div class="is-centered">
           <ul>
             <li><a href="#demo"><b>Song Generation</b></a></li>
-            <!-- <li><a href="#audioprompt"><b>Zero-shot Style Transfer</b></a></li>
+            <li><a href="#audioprompt"><b>Zero-shot Style Transfer</b></a></li>
             <li><a href="#textprompt"><b>Text-based Control</b></a></li>
-            <li><a href="#explore"><b>More Attempts</b></a></li> -->
           </ul>
         </div>
 
@@ -132,6 +142,10 @@
           <thead>
             <tr>
               <th align="center"><strong></span>Lyrics</strong></th>
+              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>Suno v4.5</strong></th>
+              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>Mureka O1</strong></th>
+              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>YUE</strong></th>
+              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>DiffRhythm</strong></th>
               <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>LeVo</strong></th>
             </tr>
           </thead>
@@ -142,63 +156,239 @@
       </tr>
       
       <tr>
-        <td width="30%" style="text-align: left;">[verse] These faded memories of us. I can't erase the tears you cried before. Unchained this heart to find its way. My peace won't beg you to stay. If ever your truth still remains. Turn around and see. Life rearranged its games. All these lessons in mistakes. Even years may never erase. <br>
-          [chorus] Like a fool begs for supper. I find myself waiting for her. Only to find the broken pieces of my heart. That was needed for my soul to love again. <br>
-          [verse]Silhouettes where you once stood. Life's rhythm changed its beat for good. Numb to whispers we once knew. My path won't circle back to you. If shadows of our past remain. Turn around and see. How we've both been rearranged. All these lessons in mistakes. Even years may never erase. <br>
-          [chorus]Like a fool begs for supper. I find myself waiting for her. Only to find the broken pieces of my heart. That was needed for my soul to love again.</td>
+        <td width="30%" style="text-align: left;">[verse] These faded memories of us. I can't erase the tears you cried before. <br>
+          Unchained this heart to find its way. My peace won't beg you to stay. <br>
+          If ever your truth still remains. Turn around and see. Life rearranged its games. <br>
+          All these lessons in mistakes. Even years may never erase. <br>
+          [chorus] Like a fool begs for supper. I find myself waiting for her.  <br>
+          Only to find the broken pieces of my heart. That was needed for my soul to love again. <br>
+          [verse] Silhouettes where you once stood. Life's rhythm changed its beat for good. <br>
+          Numb to whispers we once knew. My path won't circle back to you. <br>
+          If shadows of our past remain. Turn around and see. How we've both been rearranged. <br>
+          All these lessons in mistakes. Even years may never erase. <br>
+          [chorus] Like a fool begs for supper. I find myself waiting for her. <br>
+          Only to find the broken pieces of my heart. That was needed for my soul to love again.</td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/01_en.flac"
+            <source src="static/audio_sample/suno/01_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/01_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/01_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/01_en.wav"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/01_en.flac"
               type="audio/wav">
           </audio></td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">[verse] Ooh. listen closely. can you hear that sound. Whispers of the trees. humanity bound. Concrete jungles overflowing. Mother Earth weeps. While the rich man dreams. poor man cannot sleep. Galore of colors we were born. yet treated not the same. Invisible chains of history fueling hate's gain. Looking through a prism. promises resembling lies. Injustice on the streets. freedom's undenied. <br>
-          [chorus] Stand up. stand up. for the world is watching now.Silenced voices screaming. breaking through somehow.Not divided. let's reclaim our land.Through the echoes of our voices. together we stand. <br>
-          [verse] Ooh. listen closely. can you hear that sound. Whispers of the trees. humanity bound. Concrete jungles overflowing. Mother Earth weeps. While the rich man dreams. poor man cannot sleep. Galore of colors we were born. yet treated not the same. Invisible chains of history fueling hate's gain. Looking through a prism. promises resembling lies. Injustice on the streets. freedom's undenied <br>
-          [chorus] Stand up. stand up. for the world is watching now. Silenced voices screaming. breaking through somehow. United. not divided. let's reclaim our land. Through the echoes of our voices. together we make a stand.</td>
+        <td width="30%" style="text-align: left;">[verse] Close the ambitious heart. the sun never sets. From the dawn's first light to the star's silhouette. <br>
+          Grinding all hours. no concession to regret. In pursuit of dreams like an eagle fighting high heights. <br>
+          Unimagined. Cutting the sky. push through resistance. Don't hide. don't be shy. Jump. oh the sky. <br>
+          Push through resistance. Don't hide. don't be shy. take a walk of yashi cuccu deni. <br>
+          [chorus] Brave forward. always ascending way. The taste of victory. sweet success of the day. <br>
+          Ambition carries us onwards. onwards we sway. Search and search for the light. <br>
+          [verse] Close the ambitious heart. the sun never sets. From the dawn's first light to the star's silhouette. <br>
+          Grinding all hours. no concession to regret. In pursuit of dreams like an eagle fighting high heights. <br>
+          Unimagined. Cutting the sky. push through resistance. Don't hide. don't be shy. Jump. oh the sky. <br>
+          Push through resistance. Don't hide. don't be shy. take a walk of yashi cuccu deni. <br>
+          [chorus] Brave forward. always ascending way. The taste of victory. sweet success of the day. <br>
+          Ambition carries us onwards. onwards we sway. Search and search for the light.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/02_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/02_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/02_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/02_en.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/02_en.flac"
+            <source src="static/audio_sample/overview/02_en.flac"
               type="audio/wav">
           </audio></td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">[verse] You always look far away. choosing distant words. But when you meet my gaze and smile so softly. My heart stirs with excitement. oh oh oh oh oh. You make my gaze and smile softly. I'm obsessed. excited. Why do you always choose words that test me. I wonder why this old boy touches you when your shadow slips away. <br>
-          [chorus] You. the little devil of a model jet. Where does the true color lie. The closer I get. the farther you seem. You. the little devil of a model jet. Where does the true color lie. The closer I get. the farther you seem. For some reason. I can't reach your heart. <br>
-          [verse] You're always so indifferent. smiling coldly at me. But sometimes with just a gesture. I find myself bewildered. lost in this world. And once again. I wanna distance myself. yet I can't. I'm drowning in everything about you in your eyes. I wish you would just be honest. <br>
-          [chorus] You. so charming. are a model like the wind. Someday I want to see the honest you. You. so charming. I'm on a model. vanishing like the wind. Someday I want to see the honest you. I want you to change my world. The more you drift away. the more I want to draw near. Cause that one word that isn't there pulls me in so much. it feels like I'll drown.</td>
+        <td width="30%" style="text-align: left;">[verse] Mountains high and valleys low. the beat within my soul. Running rivers. whispering winds in their charm. <br>
+          I am whole. Can't help but stop and wonder at the beauty of it all. This is our sacred duty. <br>
+          To hear nature's gentle call. We are the children of the Earth. <br>
+          [chorus] Dancing under the moonlight. let's guard her valleys. protect her seas. Her day and night. <br>
+          One love. one heart. let's rally together for our beautiful Mother Earth. We'll fight forever. <br>
+          [verse] Mountains high and valleys low. the beat within my soul. <br>
+          Running rivers. whispering winds in their charm. I am whole. <br>
+          Can't help but stop and wonder at the beauty of it. This is our sacred duty to hear nature's gentle call. <br>
+          [chorus] We are the children of the Earth dancing under the moonlight. Let's guard her valleys. <br>
+          Protect her seas. shield her day and night. One love. one heart. <br>
+          Let's rally together for our beautiful Mother Earth. We'll fight forever.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/03_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/03_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/03_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/03_en.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/03_en.flac"
+            <source src="static/audio_sample/overview/03_en.flac"
               type="audio/wav">
           </audio></td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">[verse] There in the stardust my once held dear. Our hearts entwined. yet now so clear. Your ghostly presence in my dreams appear. An echo of lost echoes. ever near. <br>
-          [chorus] Being frosted on times I see. An echo of a touch of what remains. Lost in the cosmos. our love in a name. The tears fall like silver rain. <br>
-          [verse] Echoes of your laughter. starlit sighs. In the nebula memories love decries. Night whispers your name. the moon replies. Now a comet across the sky it flies. <br>
-          [chorus] Being frosted on times I see. An echo of a touch of what remains. Lost in the cosmos. our love innate. Moonlit love. the tears fall like silver rain.</td>
+        <td width="30%" style="text-align: left;">[verse] With the beats pulsating. feels like my heart might fracture. <br>
+          In every haunting refrain. I feel your cosmic rapture. Unraveled by the echoes. <br>
+          Drowned in the sense of sorrow. Threading dreams of yesterday with no promises of tomorrow in the rearview. <br>
+          [chorus] Under the streetlights burn. our love used to shimmer. In the heart of this lone town. <br>
+          We swam in the glimmer. Echoes of your laughter. now just a whispered whimper. <br>
+          Bitter taste of goodbye. hope has ceased to glimmer. Your silhouette fades. <br>
+          Like blue notes sinking deep in the dubstep shades. Every beat drop pulls me in. <br>
+          Into the void of despair. In the rhythm of the night. I search for what's no longer there. <br>
+          [chorus] Your silhouette fades. like blue notes sinking deep in the dubstep shades. <br>
+          Every beat drop pulls me in. into the void of despair. In the rhythm of the night. <br>
+          I search for what's no longer there. longer there.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/04_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/04_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/04_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/04_en.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/04_en.flac"
+            <source src="static/audio_sample/overview/04_en.flac"
               type="audio/wav">
           </audio></td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">[verse] Echoing voices. screaming chaos in the static noise. Cracked mirrors of forgotten choices. Our society. a dying poise. skyline burn to ashes. Mother nature cries. frozen hearts ignoring the inevitable decline. Smoke of a planet's demise. <br>
-          [chorus] Rainbow flags and protests burning in the labyrinth of concrete stone. Daunted fight. the world keeps turning. Yearning for justice. not alone. <br>
-          [verse] Echoing louder. silenced voices. screaming chaos in the static noise. Cracked mirrors of forgotten choices. Our society. a dying poise. underneath the synthetic skyline. Burned to ashes. mother nature cries. Frozen hearts ignoring the inevitable decline. Smoke springs of a demise. <br>
-          [chorus] Rainbow flags and protests burning in the labyrinth of concrete stone. Taunting fight. the world keeps turning. Yearning for justice. not alone. <br>
-          [verse] Rainbow flags and protests burning in the labyrinth of concrete stone. Dawning fight. the world keeps turning. Yearning for justice. not alone.</td>
+        <td width="30%" style="text-align: left;">[verse] Wild wind whippin'. tires agrippin'. gripping. Two roads woven neat. <br>
+          The moon saw fly. laughin'. singin'. Banjo pickin'. ignorin' darkness. <br>
+          We all know. chasin' shadows. Spirits dancin'. cross wide valleys or the timberland. <br>
+          Drawn by mystery. fueled by chance. In every corner of this world. <br>
+          [chorus] Wild. strange land. bold and brazen. no stars are fading. <br>
+          As we whisper secrets with the dawn. Twilight treasures. <br>
+          Daylight escapades in. No worrying about the road we're on. <br>
+          [verse] Bold brazen. no stars are fading. As we whisper secrets with the dawn. <br>
+          Twilight treasures. daylight escapades in. No worry about the road we're on. <br>
+          [chorus] Wild wind whippin'. tires are grippin'. Two roads woven neat. <br>
+          The moon's soft light. Laughin'. singin'. banjo pickin'. <br>
+          Ignoring darkness. we all die. Ignoring in darkness. we all die night.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/05_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/05_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/05_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/05_en.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/05_en.flac"
+            <source src="static/audio_sample/overview/05_en.flac"
               type="audio/wav">
           </audio></td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">[verse] Every day the sun don't shine. no more. The bed feels cold and empty since you walked out that door. You. the one. my only love I thought would last. Now I'm drowning in the memories of a love that's in the past. Since you've been gone. baby. my heart just can't move on. You were the light in my darkness. now I'm lost and all alone. <br>
-          [chorus] Oh. I miss you darling more than words could ever say. Since you've been gone. baby. the blues are here to stay. <br>
-          [verse] I remember all the laughter. all the dreams we used to share. Now I'm haunted by the silence of a love that's no longer there. Every street I walk is empty. every song I hear is pain. I keep looking for your shadow. but it's only pouring rain. <br>
-          [chorus] Since you've been gone. baby. my heart just can't move on. You were the light in my darkness. now I'm lost and all alone. Oh. I miss you darling more than words could ever say. Since you've been gone. baby. the blues are here to stay.</td>
+        <td width="30%" style="text-align: left;">[verse] Tearing down the cyber halls amidst the binary falls. <br>
+          Circuits whisper cryptic calls into the void of virtual walls. <br>
+          [chorus] Through lines of coding we explore fragmented sounds. Unopened. <br>
+          Open door. stripped to just ones and zero. In the chaos we search for more. <br>
+          [verse] Beneath the static find the tune in the disarray of patterns hewn. <br>
+          With every reboot we booed. we become new. In deconstruction we are reborn. we are true. <br>
+          [chorus] Beneath the static find the tune in the disarray of patterns hewn. <br>
+          With every reboot we become new. In deconstruction we are reborn. we are true. We are true. we are true.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/06_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/06_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/06_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/06_en.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/06_en.flac"
+            <source src="static/audio_sample/overview/06_en.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] Ooh. listen closely. can you hear that sound. Whispers of the trees. <br>
+          Humanity bound. Concrete jungles overflowing. Mother Earth weeps. While the rich man dreams. <br>
+          Poor man cannot sleep. Galore of colors we were born. yet treated not the same. <br>
+          Invisible chains of history fueling hate's gain. Looking through a prism. <br>
+          promises resembling lies. Injustice on the streets. freedom's undenied. <br>
+          [chorus] Stand up. stand up. for the world is watching now. Silenced voices screaming. <br>
+          Breaking through somehow. Not divided. let's reclaim our land. <br>
+          Through the echoes of our voices. together we stand. <br>
+          [verse] Ooh. listen closely. can you hear that sound. Whispers of the trees. <br>
+          Humanity bound. Concrete jungles overflowing. Mother Earth weeps. While the rich man dreams. <br>
+          Poor man cannot sleep. Galore of colors we were born. yet treated not the same. <br>
+          Invisible chains of history fueling hate's gain. Looking through a prism. <br>
+          promises resembling lies. Injustice on the streets. freedom's undenied <br>
+          [chorus] Stand up. stand up. for the world is watching now. Silenced voices screaming. <br>
+          breaking through somehow. United. not divided. let's reclaim our land. <br>
+          Through the echoes of our voices. together we make a stand.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/07_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/07_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/07_en.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/07_en.wav"
+              type="audio/wav">
+          </audio></td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/07_en.flac"
               type="audio/wav">
           </audio></td>
       </tr>
@@ -215,8 +405,24 @@
           [verse] 云卷云舒映碧空.绿意盎然春意浓.万紫千红开满园.人间处处是风景.岁月如歌人未老.江畔渔火照夜空.<br>
           [chorus] 我独行.影随形动.在庙宇前许下愿.愿人心.如金石坚.<br>
           [chorus] 一人一力.万事皆能圆.炼就一颗金石心.笑看人间繁华变.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/01.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/01.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/01.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/01.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/01.flac"
+            <source src="static/audio_sample/overview/01.flac"
               type="audio/wav">
           </audio></td>
       </tr>
@@ -227,8 +433,24 @@
           [verse] 泪眼婆娑问苍天.为何情深却难全.难道真要此情散.相思无尽泪涟涟.<br>
           [chorus] 或许是天意弄人两分离.泪湿罗裳不自知.春花秋月又一年.相思无尽泪绵绵.<br>
           [chorus] 我在水边望穿秋水.君心何在情难断.莫忘此情似海深.此心永系君心间.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/02.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/02.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/02.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/02.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/02.flac"
+            <source src="static/audio_sample/overview/02.flac"
               type="audio/wav">
           </audio></td>
       </tr>
@@ -238,8 +460,24 @@
           [chorus] 一切美好都属于你.携手共进这爱的旅途.曾经的路途虽孤单.如今有你陪伴不寂寞.<br>
           [chorus] 愿我们的爱永恒如初.这一生与你相伴共度.珍惜每一刻的拥有.让爱永远在我们的心间流淌.<br>
           [verse] 明天的钟声再次响起.你我相伴此生无憾.留住这一刻的美好回忆.让爱永远留在心间.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/03.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/03.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/03.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/03.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/03.flac"
+            <source src="static/audio_sample/overview/03.flac"
               type="audio/wav">
           </audio></td>
       </tr>
@@ -250,8 +488,24 @@
           [verse] 当夜风吹过你孤独的脸庞.有我在心中为你点亮光.当梦想的路途变得漫长.有我在身旁陪你去闯.<br>
           [chorus] 在黑夜里点亮希望的明灯.照亮你前行的路程.在心海里种下温暖的种子.让它生根发芽长成荫.<br>
           [verse] 当你迷失在茫茫人海中.记得我在这里为你守望.当你找到属于自己的天空.我会微笑着默默祝福你.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/04.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/04.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/04.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/04.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/04.flac"
+            <source src="static/audio_sample/overview/04.flac"
               type="audio/wav">
           </audio></td>
       </tr>
@@ -260,8 +514,24 @@
           [chorus] 我怀抱着守护这片梦境.在这世界中寻找爱与虚幻.苦辣酸甜.我们一起品尝.在雪的光芒中.紧紧相拥.<br>
           [verse] 雪花再次在风中飘扬.情愿如同雪花般消失无踪.希望与真挚.永不消失.在痛苦与喧嚣中.你找到解脱.<br>
           [chorus] 我环绕着守护这片梦境.在这世界中感受爱与虚假.苦辣酸甜.我们一起分享.在白银的光芒中.我们同在.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/05.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/05.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/05.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/05.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/05.flac"
+            <source src="static/audio_sample/overview/05.flac"
               type="audio/wav">
           </audio></td>
       </tr>
@@ -272,8 +542,52 @@
           [verse] 凤鸟飞舞.春华秋实.长铃摇曳.古老传说.烈酒入喉.燃烧灵魂.水波荡漾.永不回头.<br>
           [chorus] 啊.黄河.永远的黄河.肩扛希望.勇敢前行.一路狂野.河水滚烫.不朽的黄河.历史的见证.<br>
           [chorus] 浩荡的追求.永不停歇.黄河之水.孕育希望.生生不息.奔腾向前.不朽的黄河.我们的信仰.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/06.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/06.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/06.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/06.wav"
+              type="audio/wav">
+          </audio></td>
         <td width="14%" style="text-align: center;"><audio controls="">
-            <source src="static/audio_sample/overview/audioprompt/06.flac"
+            <source src="static/audio_sample/overview/06.flac"
+              type="audio/wav">
+          </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] 花朵绽放如诗篇.随风轻舞动.湖面波光映倒影.心随波浪荡漾中.感受着这美好时光.仿佛梦境般飘渺 <br>
+          [chorus] 唱啊唱.爱意围绕在身边.唱啊唱.心情如此欢畅. <br>
+          阳光洒满湖面.一切都如此美好.仿佛置身人间天堂.让人心醉神迷 <br>
+          [verse] 柳枝轻拂水面.带来淡淡的花香.渔夫划桨而过.留下一道道涟漪.在这宁静的午后.一切都显得如此和谐 <br>
+          [chorus] 唱啊唱.情人在我身旁.唱啊唱.心情如此明亮. <br>
+          雨滴轻敲窗棂.夜风中烛火摇曳.在这人间天堂.让我们紧紧相拥.</td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/suno/07.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/mureka/07.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/yue/07.mp3"
+              type="audio/wav">
+          </audio></td>
+          <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/diffrhythm/07.wav"
+              type="audio/wav">
+          </audio></td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+            <source src="static/audio_sample/overview/07.flac"
               type="audio/wav">
           </audio></td>
       </tr>
@@ -292,7 +606,7 @@
 
 
 
-<!-- 
+
 <section id="audioprompt" class="hero">
   <div class="hero-body">
     <div class="container is-fluid">
@@ -316,30 +630,126 @@
         <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>English</td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">The life I planned for me, and my dreams, I am losing control, of my destiny, it feels like I'm falling and that's what it's like to believe, so I'm letting go, giving in to your gravity.</td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/same-prompt/1v.wav"
+        <td width="40%" style="text-align: left;">[verse] You always look far away. choosing distant words. But when you meet my gaze and smile so softly. <br>
+          My heart stirs with excitement. oh oh oh oh oh. You make my gaze and smile softly. <br>
+          I'm obsessed. excited. Why do you always choose words that test me. <br>
+          I wonder why this old boy touches you when your shadow slips away. <br>
+          [chorus] You. the little devil of a model jet. Where does the true color lie. The closer I get. <br>
+          The farther you seem. You. the little devil of a model jet. Where does the true color lie. <br>
+          The closer I get. the farther you seem. For some reason. I can't reach your heart. <br>
+          [verse] You're always so indifferent. smiling coldly at me. But sometimes with just a gesture. <br>
+          I find myself bewildered. lost in this world. And once again. I wanna distance myself. <br>
+          Yet I can't. I'm drowning in everything about you in your eyes. I wish you would just be honest. <br>
+          [chorus] You. the little devil of a model jet. Where does the true color lie. The closer I get. <br>
+          The farther you seem. You. the little devil of a model jet. Where does the true color lie. <br>
+          The closer I get. the farther you seem. For some reason. I can't reach your heart. 
+        </td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/1_en_prompt.flac"
             type="audio/wav">
         </audio></td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/same-prompt/1a.wav"
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/1_en.flac"
             type="audio/wav">
         </audio></td>
       </tr>
 
-      
+      <tr>
+        <td width="40%" style="text-align: left;">[verse] We traced the stars on windowpanes. Your laugh stayed like summer rains. <br>
+          Now the clock rewinds every memory. But the colors bleed in sepia. <br>
+          [chorus] Oh-oh-oh, we’re fading echoes. Dancing in the afterglow. <br>
+          Oh-oh-oh, the night holds secrets. While the daylight slips below. <br>
+          [verse] Your shadow lingers on the stairs. A melody caught in the air. <br>
+          Fingertips brush empty space. Like whispers lost to the chase. <br>
+          [chorus] Oh-oh-oh, we’re fading echoes. Dancing in the afterglow. <br>
+          Oh-oh-oh, the night holds secrets. While the daylight slips below. <br>
+          [verse] Your shadow lingers on the stairs. A melody caught in the air. <br>
+          Fingertips brush empty space. Like whispers lost to the chase. <br>
+          [chorus] Oh-oh-oh, we’re fading echoes. Dancing in the afterglow. <br>
+          Oh-oh-oh, the night holds secrets. While the daylight slips below.
+        </td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/2_en_prompt.flac"
+            type="audio/wav">
+        </audio></td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/2_en.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+      <tr>
+        <td width="40%" style="text-align: left;">[verse] Every praise is to our God. Every word of worship. with one. <br>
+          In the morning light and through the darkest night. You're our guiding cord. <br>
+          Your love is like a river flowing so freely. Quenching our ever every thirst. oh Lord. Every tear we cry. <br>
+          [chorus] Every joy. every strife. you've been our moral sword. From the mountain high to valley low. <br>
+          By your mercy we are restored. In your presence. we abide with your grace. We coincide in your love. we're reassured. <br>
+          [verse] Hallelujah is the highest praise. Sing it from the heart. make it resound. Heaven and earth in harmony. <br>
+          Be one accord. Your grace. your love. and your peace surrounds. On your foundation we're firmly grounded. <br>
+          [chorus] Every joy. every strife. you've been our moral sword. From the mountain high to valley low. <br>
+          By your mercy we are restored. In your presence. we abide with your grace. We coincide in your love. <br>
+          We're reassured. Hallelujah is the highest praise. Sing it from the heart. make it resound. <br>
+          Heaven and earth in harmony. be one accord. Your grace. your love. and your peace surrounds. <br>
+          On your foundation we're firmly grounded.
+        </td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/3_en_prompt.flac"
+            type="audio/wav">
+        </audio></td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/3_en.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
       <tr>
         <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>Chinese</td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">Draw me angels with flapping wings, ooh... Strange machines, cos after the daekness is sunrise, there'll be hugs and teary smiles.
+        <td width="40%" style="text-align: left;">[verse] 在这个疯狂的世界里.谁不渴望一点改变.在爱情面前.我们都显得那么不安全. <br>
+          你紧紧抱着我.告诉我再靠近一点.别让这璀璨的夜晚白白浪费.我那迷茫的眼睛.看不见未来的路. <br>
+          在情感消散之前.我们对爱的渴望永不熄灭.你给我留下一句誓言.想知道我们的爱是否能持续到永远 <br>
+          [chorus] 约定在那最后的夜晚.不管命运如何摆布.我们的心是否依然如初.我会穿上红衬衫. <br>
+          带着摇滚的激情.回到我们初遇的地方.约定在那最后的夜晚.就算全世界都变了样. <br>
+          我依然坚守诺言.铭记这一天.你永远是我心中的爱恋.
         </td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/different-prompt/1v.wav"
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/1_cn_prompt.flac"
             type="audio/wav">
         </audio></td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/different-prompt/1a.wav"
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/1_cn.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+      <tr>
+        <td width="40%" style="text-align: left;">[verse] 在我心中浮现.当世界都在告别时刻.在我心中浮现.当晨光初破. <br>
+          希望重生.在我心中浮现.当新生儿的哭泣响起.在我心中浮现.生命中需要你.无法割舍 <br>
+          [chorus] 你在我脑海中.当照片渐渐褪色.你在我脑海中.当恋人们漫步.<br>
+          你在我脑海中.当我独自躺在床上.你在我脑海中.当有人呼唤你的名字.<br>
+          是的.你在我脑海中.因为那是我的心所属 <br>
+          [verse] 在我心中浮现.当DJ播放着我们最爱的旋律.在我心中浮现.在我意识到我们已经离去之前.<br>
+          在我心中浮现.当有人在我门前.在我心中浮现.因为那是我的心所属.你在我脑海中.因为那是我心的归宿
+        </td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/2_cn_prompt.flac"
+            type="audio/wav">
+        </audio></td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/2_cn.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+      <tr>
+        <td width="40%" style="text-align: left;">[verse] 眉眼流转间.情愫难掩藏.是缘是劫数.情深似海洋. <br>
+          你我目光交.心事诉衷肠.是真是假意.情难自量. <br>
+          [chorus] 他言笑晏晏.我心却彷徨.情意深似海.却道是寻常. <br>
+          你我眼相望.情意难自量.是真是假意.情难自量.  <br>
+        </td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/3_cn_prompt.flac"
+            type="audio/wav">
+        </audio></td>
+        <td width="20%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/audioprompt/3_cn.flac"
             type="audio/wav">
         </audio></td>
       </tr>
@@ -354,7 +764,6 @@
     </div>
   </div>
 </section>
-
 
 
 <section id="textprompt" class="hero">
@@ -370,7 +779,7 @@
           <thead>
             <tr>
               <th align="center"><strong></span>Lyrics</strong></th>
-              <th align="center"><strong></span>Audio Prompt</strong></th>
+              <th align="center"><strong></span>Text Description</strong></th>
               <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>LeVo</strong></th>
             </tr>
           </thead>
@@ -380,30 +789,154 @@
         <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>English</td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">The life I planned for me, and my dreams, I am losing control, of my destiny, it feels like I'm falling and that's what it's like to believe, so I'm letting go, giving in to your gravity.</td>
+        <td width="30%" style="text-align: left;">[verse] Can't you see the chains of injustice. Binding the poor. <br>
+          Hands and feet. Where greed of the wealthy leaves a trail. On empty streets. <br>
+          So heavy and pale. Hear the rhythm of struggling hearts. Echoes of voices long mute. <br>
+          The system turns its gears. the humble juggle. Seeds of revolt. taking root. <br>
+          [chorus] For a new world. fair and sweet. Where justice flows. free and complete. <br>
+          [verse] Look into the eyes of hungry children. In a world of plenty. they're so serene. 
+          Deep in their eyes. hope shines so bright. For a new world. fair and white.  <br>
+          The chains of injustice. they must be broken. For a new dawn. let's make a token.   <br>
+        </td>
+        <td width="30%" style="text-align: left;">male, bright, rock, inspirational, bass and drums.</td>
         <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/same-prompt/1v.wav"
-            type="audio/wav">
-        </audio></td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/same-prompt/1a.wav"
+          <source src="static/audio_sample/textprompt/01_en.flac"
             type="audio/wav">
         </audio></td>
       </tr>
 
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] Through emerald canyons where fireflies dwell. <br>
+          Cerulean berries kiss morning's first swell. Crystalline dew crowns each Vitamin C. <br>
+          Dawn's confection dissolves slowly on me. Ambrosia breezes through honeycomb vines. <br>
+          Nature's own candy in Fibonacci lines. <br>
+          [chorus] Blueberry fruit so sweet. takes you higher. <br>
+          Can't be beat. In your lungs. it starts to swell. cough. cough. cough. You're under its spell. <br>
+          [verse] Resin of sunlight in candied retreat. Marmalade moonbeams melt under bare feet.  <br>
+          Nectar spirals bloom chloroplast champagne. Photosynthesis sings through my veins. <br>
+          Chlorophyll rhythms pulse warm in my blood. The forest's green pharmacy floods every bud.  <br>
+          [chorus] Blueberry fruit so sweet. takes you higher. can't be beat. In your lungs. it starts to swell. <br>
+          Cough. cough. cough. You're under its spell. feel the buzz. ride the wave. <br>
+          Limey me. blueberry. your mind's enslaved. In the haze. lose all time. <br>
+          Floating free. feeling fine. Blueberry. fruit so sweet. takes you higher. can't be beat. <br>
+          In your lungs. it starts to swell. cough. cry. cough. You're under its spell. 
+        </td>
+        <td width="30%" style="text-align: left;">female, warm, R&B, romantic, guitar.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/textprompt/02_en.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] Echoing voices. screaming chaos in the static noise. <br>
+          Cracked mirrors of forgotten choices. Our society. a dying poise. skyline burn to ashes. <br>
+          Mother nature cries. frozen hearts ignoring the inevitable decline. Smoke of a planet's demise. <br>
+          [chorus] Rainbow flags and protests burning in the labyrinth of concrete stone. <br>
+          Daunted fight. the world keeps turning. Yearning for justice. not alone. <br>
+          [verse] Rainbow flags and protests burning in the labyrinth of concrete stone. <br>
+          Daunted fight. the world keeps turning. Yearning for justice. not alone. <br>
+          [chorus] Rainbow flags and protests burning in the labyrinth of concrete stone. <br>
+          Dawning fight. the world keeps turning. Yearning for justice. not alone. <br>
+          Rainbow flags and protests burning in the labyrinth of concrete stone. <br>
+          Dawning fight. the world keeps turning. Yearning for justice. not alone. <br>
+          [verse] Rainbow flags and protests burning in the labyrinth of concrete stone. <br>
+          Dawning fight. the world keeps turning. Yearning for justice. not alone.
+        </td>
+        <td width="30%" style="text-align: left;">female, loud, rock, dynamic, electricguitar.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/textprompt/03_en.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] Every day the sun don't shine. no more. The bed feels cold and empty since you walked out that door. <br>
+          You. the one. my only love I thought would last. Now I'm drowning in the memories of a love that's in the past. <br>
+          Since you've been gone. baby. my heart just can't move on. You were the light in my darkness. now I'm lost and all alone. <br>
+          [chorus] Oh. I miss you darling more than words could ever say. Since you've been gone. baby. the blues are here to stay. <br>
+          [verse] I remember all the laughter. all the dreams we used to share. <br>
+          Now I'm haunted by the silence of a love that's no longer there. Every street I walk is empty. <br>
+          Every song I hear is pain. I keep looking for your shadow. but it's only pouring rain. <br>
+          [chorus] Since you've been gone. baby. my heart just can't move on. You were the light in my darkness. <br>
+          Now I'm lost and all alone. Oh. I miss you darling more than words could ever say. <br>
+          Since you've been gone. baby. the blues are here to stay.
+        </td>
+        <td width="30%" style="text-align: left;">male, magnetic, blues, mysterious, drums and guitar.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/textprompt/04_en.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
       
       <tr>
         <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>Chinese</td>
       </tr>
       <tr>
-        <td width="30%" style="text-align: left;">Draw me angels with flapping wings, ooh... Strange machines, cos after the daekness is sunrise, there'll be hugs and teary smiles.
-        </td>
+        <td width="30%" style="text-align: left;">[verse] 风轻轻吹过古道.岁月在墙上刻下记号. <br>
+          梦中你笑得多甜.醒来却只剩下寂寥. <br>
+          繁花似锦的春天.少了你的色彩也失了妖娆 <br>
+          [chorus] 想见你.在晨曦中.在月光下.每个瞬间都渴望. <br>
+          没有你.星辰也黯淡.花香也无味.只剩下思念的煎熬. <br>
+          想见你.穿越千山万水.只为那一瞥.你的容颜 <br>
+          [verse] 月儿弯弯照九州.你是否也在仰望同一片天空. <br>
+          灯火阑珊处.我寻觅你的影踪. <br>
+          回忆如波光粼粼.荡漾在心湖的每个角落 <br>
+          [chorus] 想见你.在晨曦中.在月光下.每个瞬间都渴望. <br>
+          没有你.星辰也黯淡.花香也无味.只剩下思念的煎熬. <br>
+          想见你.穿越千山万水.只为那一瞥.你的容颜</td>
+        <td width="30%" style="text-align: left;">male, warm, pop, sad, piano and drums.</td>
         <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/different-prompt/1v.wav"
+          <source src="static/audio_sample/textprompt/01_cn.flac"
             type="audio/wav">
         </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] 梦回往昔.誓言轻许.西风掠过.消散无痕.繁花似锦.终不过昙花一现. <br> 
+          情之所钟.空余落寞.月映孤影.独酌无相亲.情深缘浅.奈何奈何 <br>
+          [chorus] 爱恨交织.愁肠百结.怕只怕.这些痛无尽头. <br>
+          悲喜交加.寂寞难耐.等一等.伤痕终会愈合. <br>
+          爱恨交织.情深缘浅.怕只怕.这些泪无处流. <br>
+          悲欢离合.浮生若梦.等一等.自由终会来临 <br>
+          [verse] 岁月匆匆.容颜已改.昔日誓言.犹如烟云.花开花落.终不过一场空. <br>
+          情丝难断.相思成疾.独对长空.泪湿青衫.情深似海.却无法言 <br> 
+          [chorus] 爱恨交织.愁肠百结.怕只怕.这些痛无尽头. <br>
+          悲喜交加.寂寞难耐.等一等.伤痕终会愈合.爱恨交织. <br>
+          情深缘浅.怕只怕.这些泪无处流.悲欢离合.浮生若梦. <br>
+          等一等.自由终会来临.自由终会来临</td>
+        <td width="30%" style="text-align: left;">male, bright, pop, melancholic, piano.</td>
         <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/different-prompt/1a.wav"
+          <source src="static/audio_sample/textprompt/02_cn.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] 月映窗棂梦回时.故乡依稀在心扉.夜色温柔伴我行.家的温暖在怀中. <br>
+          岁月匆匆如流水.心中牵挂不曾停.花前月下思无尽.家的轮廓渐分明 <br>
+          [chorus] 家是深深的眷恋.家是暖暖的炊烟.家是生命的港湾.家是那抹熟悉的笑脸. <br>
+          梦回故里情难断.家的呼唤在耳边.无论走到天涯海角.心中永远有家园 <br>
+          [verse] 月光如水洒人间.思绪随风飘向远.家的方向在何方.梦中寻觅千百遍. <br>
+          时光荏苒岁月长.心中那份情依然.家的温暖在心间.照亮前行的路 <br>
+          [chorus] 家是永远的牵挂.家是深深的思念.家是人生的归宿.家是那避风遮雨的港湾. <br>
+          无论风雨多变幻.家的灯火永不熄灭.心中那份爱不变.家的温暖永流传</td>
+        <td width="30%" style="text-align: left;">male, pop, miss, piano and drums.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/textprompt/03_cn.flac"
+            type="audio/wav">
+        </audio></td>
+      </tr>
+      <tr>
+        <td width="30%" style="text-align: left;">[verse] 每个清晨.当我睁开眼.你的笑容就像第一缕阳光.温暖我心. <br>
+          驱散夜的寒.每个夜晚.当星星闪烁.我和你.在梦中相遇 <br>
+          [chorus] 多么奇妙.这份感觉.在你的怀里.我找到了家. <br>
+          我愿意为你.做任何事情.因为我遇见了你.爱的力量如此神奇 <br>
+          [verse] 不管世界如何变化无常.我会一直在你身边.给你力量.当你感到孤单. <br>
+          当你迷失方向.记得我在这里.永远守候 <br>
+          [chorus] 多么奇妙.这份感觉.在你的眼里.我看到了永恒. <br>
+          我愿意为你.穿越千山万水.因为我遇见了你.爱的力量如此神奇</td>
+        <td width="30%" style="text-align: left;">male, folk, romantic, nostagic, guitar and drums.</td>
+        <td width="14%" style="text-align: center;"><audio controls="">
+          <source src="static/audio_sample/textprompt/04_cn.flac"
             type="audio/wav">
         </audio></td>
       </tr>
@@ -420,65 +953,4 @@
 </section>
 
 
-<section id="explore" class="hero">
-  <div class="hero-body">
-    <div class="container is-fluid">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">More Attempts</h2>
-        </div>
-      </div>
-      <div class="columns is-centered has-text-centered">
-        <table class="table" style="background-color: transparent;">
-          <thead>
-            <tr>
-              <th align="center"><strong></span>Lyrics</strong></th>
-              <th align="center"><strong></span>Audio Prompt</strong></th>
-              <th align="center"><strong><span class="icon"><i class="fas fa-magic"></i></span>LeVo</strong></th>
-            </tr>
-          </thead>
-          <tbody>
-      
-      <tr>
-        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>English</td>
-      </tr>
-      <tr>
-        <td width="30%" style="text-align: left;">The life I planned for me, and my dreams, I am losing control, of my destiny, it feels like I'm falling and that's what it's like to believe, so I'm letting go, giving in to your gravity.</td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/same-prompt/1v.wav"
-            type="audio/wav">
-        </audio></td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/same-prompt/1a.wav"
-            type="audio/wav">
-        </audio></td>
-      </tr>
-
-      
-      <tr>
-        <td width="30%" style="text-align: left;"> <span class="icon"><i class="fas fa-magic"></i></span>Chinese</td>
-      </tr>
-      <tr>
-        <td width="30%" style="text-align: left;">Draw me angels with flapping wings, ooh... Strange machines, cos after the daekness is sunrise, there'll be hugs and teary smiles.
-        </td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/different-prompt/1v.wav"
-            type="audio/wav">
-        </audio></td>
-        <td width="14%" style="text-align: center;"><audio controls="">
-          <source src="static/audio_sample/overview/different-prompt/1a.wav"
-            type="audio/wav">
-        </audio></td>
-      </tr>
-            </tbody>
-        </table>
-      </div>
-              <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                  <a href="#toc" class="button is-primary">Go Back to Table of Contents</a>
-                </div>
-              </div>
-    </div>
-  </div>
-</section> -->
 
